@@ -1,0 +1,7 @@
+Note:
+Update: The blocker for upgrading LMFC app from Python runtime 3.9 to 3.12 (latest), is the app's primary dependency on custom built library package, xom-dasher, which is hosted in private market, Exxon Azure Artifact. In order to update to latest Python runtime, it requires upgrading of internal library inside xom-dasher so that it's compatible with latest Python runtime. Hence an upgrade work need to be done on xom-dasher library. The LMFC app have major reliance on xom-dasher library for UI and data computation. It was highly customized by combining both open-source Dash and dasher library with addition to new custom class and ui component. The option to switch xom-dasher to open source dasher library is not feasible.
+Upgrading existing xom-dasher library in existing github repo and releasing it as a new package would require permission from responsible owner, knowledge transfer on development, testing and maintenance responsibility. This is less favourable to us. The xom-dasher library is only used by LMFC app, confirmed by Juan, owner.
+
+Reasonable solution that eliminates the blocker is bringing the xom-dasher library code into the native LMFC app code. With this the dependency to private market is removed and all libraries are downloaded from public python market. This approach have been tested with existing Python version and working good. 
+
+Work on upgrading the Python runtime and related libraries to latest able to proceed and in-progress.
